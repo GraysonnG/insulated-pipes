@@ -1,0 +1,10 @@
+{
+	"name": "insulated-pipes",
+	"version": "1.0.0",
+	"title": "Insulated Pipes",
+	"author": "Blank The Evil",
+	"homepage": "",
+	"description": "A mod for Space Age that adds insulated pipes. Insulated pipes are and end-game replacement for pipes that can be used to transport fluids on Aquilo without having to keep the pipes heated.",
+	"factorio_version": "2.0",
+  "dependencies": []
+}
