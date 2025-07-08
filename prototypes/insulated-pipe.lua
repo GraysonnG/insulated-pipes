@@ -10,6 +10,25 @@ function table.shallow_copy(t)
   return t2
 end
 
+function table.copy(t, deep, seen)
+    seen = seen or {}
+    if t == nil then return nil end
+    if seen[t] then return seen[t] end
+
+    local nt = {}
+    for k, v in pairs(t) do
+        if deep and type(v) == 'table' then
+            nt[k] = table.copy(v, deep, seen)
+        else
+            nt[k] = v
+        end
+    end
+    setmetatable(nt, table.copy(getmetatable(t), deep, seen))
+    seen[t] = nt
+    return nt
+end
+
+
 --- @param i integer
 local function make_visualization(i)
   return
@@ -354,8 +373,10 @@ insulated_tank.name = "insulated-storage-tank"
 insulated_tank.icon = "__insulated-pipes__/graphics/icons/insulated-storage-tank.png"
 insulated_tank.minable = { mining_time = 0.5, result = "insulated-storage-tank" }
 insulated_tank.heating_energy = "0W"
-insulated_tank.pictures.picture.sheets[1].filename = "__insulated-pipes__/graphics/entity/storage-tank/storage-tank.png"
-insulated_tank.pictures.window_background.filename = "__insulated-pipes__/graphics/entity/storage-tank/window-background.png"
+local tank_pictures = table.copy(insulated_tank.pictures, true)
+tank_pictures.picture.sheets[1].filename = "__insulated-pipes__/graphics/entity/storage-tank/storage-tank.png"
+tank_pictures.window_background.filename = "__insulated-pipes__/graphics/entity/storage-tank/window-background.png"
+insulated_tank.pictures = tank_pictures
 
 data.extend({
   insulated_pipe,
