@@ -18,7 +18,7 @@ data:extend({
         recipe = "insulated-storage-tank"
       }
     },
-    prerequisites = { "cryogenic-plant" },
+    prerequisites = { "fusion-reactor" },
     unit = {
       count = 3000,
       ingredients = {
