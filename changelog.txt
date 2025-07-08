@@ -1,0 +1,18 @@
+-------------------------------------------------------
+Version: 1.0.2
+Date: 2025-07-08
+  Nit:
+    - Update dependencies so that mod is properly sorted in portal.
+    - Add Changelog
+-------------------------------------------------------
+Version: 1.0.1
+Date: 2025-07-07
+  Bugfixes:
+    - Fix issue where insulated storage tank sprites affected base game storage tanks.
+  Balance:
+    - Make Insulated Fluid Handling require the Fusion Reactor technology.
+-------------------------------------------------------
+Version: 1.0.0
+Date: 2025-07-07
+  Changes:
+    - Mod Uploaded!
